@@ -34,9 +34,9 @@ start-api:
 	#sets PYTHONPATH to directory above, would do differently in production
 	cd flask_app && PYTHONPATH=".." python web.py
 
-benchmark-web-sum:
+#benchmark-web-sum:
 	#very simple benchmark of api on sum operations
-	ab -n 1000 -c 100 -T 'application/json' -u ext/input_base64.txt http://0.0.0.0:5001/api/npsum\?column=count\&group_by=last_name
+#	ab -n 1000 -c 100 -T 'application/json' -u ext/input_base64.txt http://0.0.0.0:5001/api/npsum\?column=count\&group_by=last_name
 
 profile:
 	python3 -m cProfile -s cumtime ./csvcli.py cvsops --file ext/input.csv --groupby last_name --applyname count --func npmedian | less
