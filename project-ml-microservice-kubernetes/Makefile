@@ -29,7 +29,7 @@ lint:
 	# This should be run from inside a virtualenv
 	sudo wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&\
 	sudo chmod a+rx /bin/hadolint &&\
-			hadolint Dockerfile &&\
+			sudo hadolint Dockerfile &&\
 				pylint --disable=R,C,W1203,W1202 app.py
 	
 all: install lint test
