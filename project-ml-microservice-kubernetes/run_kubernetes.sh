@@ -4,11 +4,11 @@
 
 # Step 1:
 # This is your Docker ID/path
-dockerpath=dockerss1/udacity:p4udacity-image
+dockerpath=9894034584/udacity:p4udacity-image
 
 # Step 2
 # Run the Docker Hub container with kubernetes
-kubectl run p4udacity --image=dockerss1/udacity:p4udacity-image --port=80
+kubectl run p4udacity --image=9894034584/udacity:p4udacity-image --port=1025
 
 
 # Step 3:
@@ -17,5 +17,5 @@ kubectl get pods
 
 # Step 4:
 # Forward the container port to a host
-kubectl port-forward p4udacity 8000:80
+kubectl port-forward p4udacity 1025:80
 

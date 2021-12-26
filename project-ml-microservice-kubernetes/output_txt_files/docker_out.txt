@@ -1,1 +1,159 @@
-<paste log output from Docker prediction, here>
+(.devops) voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ python app.py
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:1025/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 128-058-705
+
+voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_docker.sh
+Sending build context to Docker daemon  116.9MB
+Step 1/6 : FROM python:3.7.3-stretch
+ ---> 34a518642c76
+Step 2/6 : WORKDIR /app
+ ---> Running in 080b1016d9ff
+Removing intermediate container 080b1016d9ff
+ ---> d56025ac94c6
+Step 3/6 : COPY . app.py /app/
+ ---> cf12a1c1f8c5
+Step 4/6 : RUN pip install --upgrade pip &&    pip install -r requirements.txt
+ ---> Running in 7a39a5d6e8f7
+Collecting pip
+  Downloading https://files.pythonhosted.org/packages/a4/6d/6463d49a933f547439d6b5b98b46af8742cc03ae83543e4d7688c2420f8b/pip-21.3.1-py3-none-any.whl (1.7MB)
+Installing collected packages: pip
+  Found existing installation: pip 19.1.1
+    Uninstalling pip-19.1.1:
+      Successfully uninstalled pip-19.1.1
+Successfully installed pip-21.3.1
+Collecting Click==7.0
+  Downloading Click-7.0-py2.py3-none-any.whl (81 kB)
+Collecting Flask==1.0.2
+  Downloading Flask-1.0.2-py2.py3-none-any.whl (91 kB)
+Collecting itsdangerous==1.1.0
+  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+Collecting Jinja2==2.10.3
+  Downloading Jinja2-2.10.3-py2.py3-none-any.whl (125 kB)
+Collecting MarkupSafe==1.1.1
+  Downloading MarkupSafe-1.1.1-cp37-cp37m-manylinux2010_x86_64.whl (33 kB)
+Collecting numpy==1.17.2
+  Downloading numpy-1.17.2-cp37-cp37m-manylinux1_x86_64.whl (20.3 MB)
+Collecting pandas==0.24.2
+  Downloading pandas-0.24.2-cp37-cp37m-manylinux1_x86_64.whl (10.1 MB)
+Collecting python-dateutil==2.8.0
+  Downloading python_dateutil-2.8.0-py2.py3-none-any.whl (226 kB)
+Collecting pytz==2019.3
+  Downloading pytz-2019.3-py2.py3-none-any.whl (509 kB)
+Collecting scikit-learn==0.20.3
+  Downloading scikit_learn-0.20.3-cp37-cp37m-manylinux1_x86_64.whl (5.4 MB)
+Collecting scipy==1.3.1
+  Downloading scipy-1.3.1-cp37-cp37m-manylinux1_x86_64.whl (25.2 MB)
+Collecting six==1.12.0
+  Downloading six-1.12.0-py2.py3-none-any.whl (10 kB)
+Collecting Werkzeug==0.16.0
+  Downloading Werkzeug-0.16.0-py2.py3-none-any.whl (327 kB)
+Collecting pylint==2.4.4
+  Downloading pylint-2.4.4-py3-none-any.whl (302 kB)
+Collecting mccabe<0.7,>=0.6
+  Downloading mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+Collecting isort<5,>=4.2.5
+  Downloading isort-4.3.21-py2.py3-none-any.whl (42 kB)
+Collecting astroid<2.4,>=2.3.0
+  Downloading astroid-2.3.3-py3-none-any.whl (205 kB)
+Collecting typed-ast<1.5,>=1.4.0
+  Downloading typed_ast-1.4.3-cp37-cp37m-manylinux1_x86_64.whl (743 kB)
+Collecting wrapt==1.11.*
+  Downloading wrapt-1.11.2.tar.gz (27 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting lazy-object-proxy==1.4.*
+  Downloading lazy_object_proxy-1.4.3-cp37-cp37m-manylinux1_x86_64.whl (56 kB)
+Building wheels for collected packages: wrapt
+  Building wheel for wrapt (setup.py): started
+  Building wheel for wrapt (setup.py): finished with status 'done'
+  Created wheel for wrapt: filename=wrapt-1.11.2-cp37-cp37m-linux_x86_64.whl size=71349 sha256=2fdfa90b10bd4b256e17bfb7e0d2dce7ca21def914f53e82f673aee0347666df
+  Stored in directory: /root/.cache/pip/wheels/23/5f/62/304b411f20be41821465a82bc98baabc5e68c3cdd1eb99db71
+Successfully built wrapt
+Installing collected packages: wrapt, typed-ast, six, numpy, MarkupSafe, lazy-object-proxy, Werkzeug, scipy, pytz, python-dateutil, mccabe, Jinja2, itsdangerous, isort, Click, astroid, scikit-learn, pylint, pandas, Flask
+Successfully installed Click-7.0 Flask-1.0.2 Jinja2-2.10.3 MarkupSafe-1.1.1 Werkzeug-0.16.0 astroid-2.3.3 isort-4.3.21 itsdangerous-1.1.0 lazy-object-proxy-1.4.3 mccabe-0.6.1 numpy-1.17.2 pandas-0.24.2 pylint-2.4.4 python-dateutil-2.8.0 pytz-2019.3 scikit-learn-0.20.3 scipy-1.3.1 six-1.12.0 typed-ast-1.4.3 wrapt-1.11.2
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Removing intermediate container 7a39a5d6e8f7
+ ---> 8e21a855d251
+Step 5/6 : EXPOSE 1025
+ ---> Running in ad9ff97fe46d
+Removing intermediate container ad9ff97fe46d
+ ---> 5407bc826ec8
+Step 6/6 : CMD ["python", "app.py"]
+ ---> Running in 29ef634f4c45
+Removing intermediate container 29ef634f4c45
+ ---> 20801e98d703
+Successfully built 20801e98d703
+Successfully tagged 9894034584/udacity:p4udacity
+REPOSITORY                    TAG             IMAGE ID       CREATED                  SIZE
+9894034584/udacity            p4udacity       20801e98d703   Less than a second ago   1.37GB
+docker/getting-started        latest          26d80cd96d69   3 weeks ago              28.5MB
+gcr.io/k8s-minikube/kicbase   v0.0.28         e2a6c047bedd   2 months ago             1.08GB
+lambci/lambda                 python3.8       094248252696   11 months ago            524MB
+lambci/lambda                 nodejs12.x      22a4ada8399c   11 months ago            390MB
+lambci/lambda                 nodejs10.x      db93be728e7b   11 months ago            385MB
+lambci/lambda                 python3.7       22b4b6fd9260   11 months ago            946MB
+lambci/lambda                 python3.6       177c85a10179   11 months ago            894MB
+lambci/lambda                 python2.7       d96a01fe4c80   11 months ago            763MB
+lambci/lambda                 nodejs8.10      5754fee26e6e   11 months ago            813MB
+python                        3.7.3-stretch   34a518642c76   2 years ago              929MB
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:1025/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 140-421-131
+ 
+ (.devops) voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./upload_docker.sh 
+Password: 
+WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+Docker ID and Image: 9894034584/udacity:p4udacity-image
+The push refers to repository [docker.io/9894034584/udacity]
+b58c1fdb8a87: Layer already exists 
+3f19b7520c88: Layer already exists 
+c1d771e39a4c: Layer already exists 
+799a7872c8c7: Layer already exists 
+715450468940: Layer already exists 
+c9d608035aef: Layer already exists 
+bb9c02680a15: Layer already exists 
+a637c551a0da: Layer already exists 
+2c8d31157b81: Layer already exists 
+7b76d801397d: Layer already exists 
+f32868cde90b: Layer already exists 
+0db06dff9d9a: Layer already exists 
+p4udacity-image: digest: sha256:fc005a087bd3e1fe37ab04b795ae99192559bdc5f8b7ee9c36e6de2764997280 size: 2850
+
+
+
+(.devops) voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./make_prediction.sh
+Port: 1025
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+
+[2021-12-26 02:55:05,213] INFO in app: JSON payload: 
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2021-12-26 02:55:05,295] INFO in app: Inference payload DataFrame: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-12-26 02:55:05,315] INFO in app: Scaling Payload: 
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-12-26 02:55:05,323] INFO in app: Output Prediction: 
+[20.35373177134412]
+127.0.0.1 - - [26/Dec/2021 02:55:05] "POST /predict HTTP/1.1" 200 -

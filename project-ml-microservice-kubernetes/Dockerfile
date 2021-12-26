@@ -17,7 +17,7 @@ RUN pip install --upgrade pip &&\
     
 ## Step 4:
 # Expose port 80
-EXPOSE 80
+EXPOSE 1025
 
 
 ## Step 5:
